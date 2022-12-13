@@ -6,20 +6,22 @@
 	<title></title>
 </head>
 <body>
+	<ul>
+		
+	</ul>
 	<script>
-		/*1)crear una conexión (objeto XHR)
-		2)configurar la conexión --> dónde? --> URL | cómo? --> método
-		conexion.open(método,url)
-		3)enviar la PETICIÓN
-		conexion.send()
-		4)gestionar la RESPUESTA
-		escuchar el evento LOAD --> en el callback ---> conexion.responseText <--- respuesta del servidor convertida a STRING*/
+
+		const lista = document.querySelector("ul");
 
 		const conexion  = new XMLHttpRequest();
 		conexion.open("GET","prueba.txt");
 		conexion.send();
 		conexion.addEventListener("load",function(){
-			console.log(this.responseText);
+			this.responseText.split(",").forEach(palabra => {
+				let li = document.createElement("li");
+				li.innerHTML = palabra;
+				lista.appendChild(li);
+			});
 		});
 
 	</script>
