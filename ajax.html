@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script>
+		/*1)crear una conexión (objeto XHR)
+		2)configurar la conexión --> dónde? --> URL | cómo? --> método
+		conexion.open(método,url)
+		3)enviar la PETICIÓN
+		conexion.send()
+		4)gestionar la RESPUESTA
+		escuchar el evento LOAD --> en el callback ---> conexion.responseText <--- respuesta del servidor convertida a STRING*/
+
+		const conexion  = new XMLHttpRequest();
+		conexion.open("GET","prueba.txt");
+		conexion.send();
+		conexion.addEventListener("load",function(){
+			console.log(this.responseText);
+		});
+
+	</script>
+</body>
+</html>
